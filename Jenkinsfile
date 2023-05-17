@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                git 'https://github.com/mercyfulmama/htech-finance-app'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mercyfulmama/htech-finance-app']])
                 sh 'mvn clean install'
             }
         }
